@@ -1,45 +1,40 @@
-import { collection, getDocs } from "firebase/firestore/lite";
-import React, { useEffect, useState } from "react";
-import { db } from "../../api/firebase";
+import React from "react";
+import OrderFeed from "../../components/order/orderFeed";
+import Header from "../../components/header/header";
 const OrderScreen = () => {
-  const [orders, setOrders] = useState([]);
-
-  useEffect(async () => {
-    const formationsList = await getOrders();
-    setOrders(formationsList);
-  });
-
-  async function getOrders() {
-    const ordersCol = collection(db, "orders");
-    const ordersSnapshot = await getDocs(ordersCol);
-    const ordersList = ordersSnapshot.docs.map((doc) => {
-      return { ...doc.data(), id: doc.id };
-    });
-    return ordersList;
-  }
-
-  return orders.map(
-    ({ id, articles, date, email, nom, referenceNumber, telephone, total }) => (
-      <div key={id}>
-        {articles.map(({ id, price, title, reference }) => (
-          <div key={id}>
-            <p>{title}</p>
-            <p>{price}</p>
-          </div>
-        ))}
-        <div>{total}</div>
-        <div>
-          <p>{referenceNumber}</p>
-          <p>{nom}</p>
-          <p>{email}</p>
-          <p>
-            {new Date(date.toDate()).toLocaleString("Fr-fr", "DD MMM YYYY")}
-          </p>
-          <p>{telephone}</p>
-        </div>
-      </div>
-    )
+  return (
+    <div style={styled.container}>
+      <Header />
+      <OrderFeed />
+    </div>
   );
 };
 
 export default OrderScreen;
+
+const styled = {
+  container: {
+    backgroundColor: "#343A59",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+    minHeight: "100vh",
+    paddingTop: 125,
+  },
+
+  article: {
+    display: "flex",
+    flexDirection: "column",
+    border: "solid 1px red",
+    padding: 20,
+    borderRadius: 15,
+
+    marginBottom: 20,
+  },
+
+  item: {
+    margin: 10,
+    marginLeft: 0,
+  },
+};

@@ -25,9 +25,9 @@ const FormationScreen = () => {
       <Header />
       {formations.length > 0 &&
         formations?.map(({ id, price, title }) => (
-          <div key={id}>
+          <div style={styles.formation} key={id}>
             <p>{title}</p>
-            <p>{price}</p>
+            <p>{price} €</p>
           </div>
         ))}
     </div>
@@ -38,11 +38,22 @@ export default FormationScreen;
 
 const styles = {
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#343A59",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
     minHeight: "100vh",
+    paddingTop: 125,
+  },
+
+  formation: {
+    backgroundColor: "white",
+    width: 360,
+    height: 100,
+    padding: 20,
+    borderRadius: 20,
+    margin: 20,
+    fontSize: 20,
   },
 };

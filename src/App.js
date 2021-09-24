@@ -4,6 +4,7 @@ import LoginScreen from "./screens/login/loginScreen";
 import formationScreen from "./screens/formationScreen/formationScreen";
 import OrderScreen from "./screens/orderScreen/orderScreen";
 import BlocScreen from "./screens/blocScreen/blocScreen";
+import invoiceScreen from "./screens/invoiceScreen/invoiceScreen";
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={formationScreen} />
             <Route path="/order" exact component={OrderScreen} />
+            <Route path="/invoice" exact component={OrderScreen} />
             <Route path="/bloc/:id" exact component={BlocScreen} />
             <Route path="/login/" exact component={LoginScreen} />
           </Switch>
