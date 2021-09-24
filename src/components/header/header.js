@@ -36,7 +36,6 @@ const styles = {
   header: {
     backgroundColor: "white",
     display: "flex",
-    backgroundColor: "red",
     justifyContent: "center",
     width: "100%",
     minHeight: 80,

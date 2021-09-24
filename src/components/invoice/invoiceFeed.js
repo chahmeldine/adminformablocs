@@ -1,8 +1,7 @@
-import { collection, getDocs } from "firebase/firestore/lite";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { db } from "../../api/firebase";
 const InvoiceFeed = () => {
-  const [invoices, setInvoices] = useState([]);
+  const [invoices] = useState([]);
 
   console.log(db.collection("invoices"));
 

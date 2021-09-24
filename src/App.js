@@ -4,7 +4,6 @@ import LoginScreen from "./screens/login/loginScreen";
 import formationScreen from "./screens/formationScreen/formationScreen";
 import OrderScreen from "./screens/orderScreen/orderScreen";
 import BlocScreen from "./screens/blocScreen/blocScreen";
-import invoiceScreen from "./screens/invoiceScreen/invoiceScreen";
 
 class App extends React.Component {
   render() {
