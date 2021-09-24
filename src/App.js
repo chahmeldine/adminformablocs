@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LoginScreen from "./screens/login/loginScreen";
+import formationScreen from "./screens/formationScreen/formationScreen";
+import OrderScreen from "./screens/orderScreen/orderScreen";
+import BlocScreen from "./screens/blocScreen/blocScreen";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={formationScreen} />
+            <Route path="/order" exact component={OrderScreen} />
+            <Route path="/bloc/:id" exact component={BlocScreen} />
+            <Route path="/login/" exact component={LoginScreen} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
